@@ -1,6 +1,7 @@
 """
 It will check ith element and i+1th element and swap and keep the highest elements at last, then reduce length by 1
 and continue with remaining elements.
+Also after each iteration it will check if any swap has been done, if not then will stop the execution.
 Comparison: O(n**2)
 Swapping: O(n**2)
 """
