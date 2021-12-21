@@ -1,0 +1,14 @@
+Graph ADT(Abstract Data Types)
+================================
+1. create(n) => Create n vertices
+2. insert_edge(u,v,w=1) => First parameter is vertex v, second parameter is vertex u, w is weight
+                           between v and u.
+3. remove_edge(u,v)
+4. exist_edge(u,v)
+5. vertices() : return all vertices
+6. edges() : return all edges
+7. vertx_count() : returns the vertex count
+8. edge_count() : returns the count of of edges
+9. degree(u) : returns the degree of vertex u
+10. indegree(u) : returns the indegree of vertex u
+11. outdegree(u) : returns the outdegree of vertex u
