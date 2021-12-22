@@ -1,5 +1,4 @@
-"""First it will check the smallest number by comparing the front element and then swap to the front one
-after another
+"""First it will find the smallest number for array then swap it into front and increased the i value to 1
 Comparisons : O(n**2)
 Swapping : O(n)
 """
@@ -11,7 +10,7 @@ def selection_sort(array):
         for j in range(i + 1, len(array)):
             if array[smallest] > array[j]:
                 smallest = j
-        array[i], array[smallest] = array[smallest], array[i]
+        array[i], array[smallest] = array[smallest], array[i]  # Swapping the smallest number to i'th(front) position
     return array
 
 
