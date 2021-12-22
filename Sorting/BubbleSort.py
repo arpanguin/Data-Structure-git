@@ -13,9 +13,9 @@ def bubbleSort(array):
     while not is_sorted:
         index = 0
         is_sorted = True
-        while index < len(array)-1-counter:	# On every eteration the biggest element is sorted to last, so minusing the last element represented by counter
-            if array[index] > array[index+1]:
-                array[index], array[index+1] =  array[index+1], array[index]
+        while index < len(array) - 1 - counter:  # On every iteration the biggest element is sorted to last, so minus the last element represented by counter
+            if array[index] > array[index + 1]:
+                array[index], array[index + 1] = array[index + 1], array[index]
                 is_sorted = False
             index += 1
         counter += 1

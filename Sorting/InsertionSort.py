@@ -9,20 +9,20 @@ Swapping complexity : O(n)
 def insertionSort(array):
     i = 0
     while i < len(array) - 1:
-        if array[i] > array[i+1]:
-            array[i], array[i+1] = array[i+1], array[i]
+        if array[i] > array[i + 1]:
+            array[i], array[i + 1] = array[i + 1], array[i]
             j = i
             while j > 0:
-                if array[j] < array[j-1]:
-                    array[j], array[j-1] = array[j-1], array[j]
-                else:
+                if array[j] < array[j - 1]:
+                    array[j], array[j - 1] = array[j - 1], array[j]
+                else:  # it is only checking with the previous element if bigger then break.
                     break
                 j -= 1
         i += 1
     return array
 
 
-values = [3,1,2]
+values = [3, 1, 2]
 print('Original Array:', values)
 insertionSort(values)
 print('Sorted Array:', values)
