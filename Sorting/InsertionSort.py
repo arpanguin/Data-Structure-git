@@ -6,19 +6,23 @@ Swapping complexity : O(n)
 """
 
 
-def insertion_sort(values):
-    length = len(values)
-    for i in range(1, length):
-        position = i
-        while position > 0 and values[position-1] > values[position]:
-            temp = values[position]
-            values[position] = values[position-1]
-            values[position-1] = temp
-            position -= 1
-    return values
+def insertionSort(array):
+    i = 0
+    while i < len(array) - 1:
+        if array[i] > array[i+1]:
+            array[i], array[i+1] = array[i+1], array[i]
+            j = i
+            while j > 0:
+                if array[j] < array[j-1]:
+                    array[j], array[j-1] = array[j-1], array[j]
+                else:
+                    break
+                j -= 1
+        i += 1
+    return array
 
 
-values = [3, 5, 2, 8, 9, 11, 10, 1]
+values = [3,1,2]
 print('Original Array:', values)
-insertion_sort(values)
+insertionSort(values)
 print('Sorted Array:', values)
