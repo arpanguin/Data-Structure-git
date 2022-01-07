@@ -89,6 +89,12 @@ class BinaryTree:
         self.branchSums_helper(node._left, branch_sum, total_sum)
         self.branchSums_helper(node._right, branch_sum, total_sum)
 
+    def nodeDepths(self, root, depth=0):
+        """Sum of its nodes depth"""
+        if not root:
+            return 0
+        return depth + self.nodeDepths(root._left, depth + 1) + self.nodeDepths(root._right, depth + 1)
+
 
 null = BinaryTree()
 a = BinaryTree()
@@ -134,3 +140,5 @@ print(f"\nHeight of the tree is ==> {binary_tree.height(j._root)}")
 
 print("\nBranch Sums.....")
 print(binary_tree.branchSums(j._root))
+
+print(f"\nNode depth sums ==> {binary_tree.nodeDepths(j._root)}")
