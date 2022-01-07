@@ -71,6 +71,24 @@ class BinaryTree:
                 return y + 1
         return 0
 
+    def branchSums(self, root):
+        """Summing up each branch of the tree"""
+        total_sum = []
+        self.branchSums_helper(root, 0, total_sum)
+        return total_sum
+
+    def branchSums_helper(self, node, branch_sum, total_sum):
+        """Branch sum helper method"""
+        if not node:
+            return
+        branch_sum += node._element
+
+        if not node._left and not node._right:
+            total_sum.append(branch_sum)
+
+        self.branchSums_helper(node._left, branch_sum, total_sum)
+        self.branchSums_helper(node._right, branch_sum, total_sum)
+
 
 null = BinaryTree()
 a = BinaryTree()
@@ -78,27 +96,41 @@ b = BinaryTree()
 c = BinaryTree()
 d = BinaryTree()
 e = BinaryTree()
+f = BinaryTree()
+g = BinaryTree()
+h = BinaryTree()
+i = BinaryTree()
+j = BinaryTree()
 
-a.make_tree("A", null, null)
-b.make_tree("B", null, null)
-c.make_tree("C", a, b)
+a.make_tree(8, null, null)
+b.make_tree(9, null, null)
+c.make_tree(10, null, null)
+d.make_tree(4, a, b)
+e.make_tree(5, c, null)
+f.make_tree(2, d, e)
 
-d.make_tree("D", null, null)
-e.make_tree("E", c, d)
+g.make_tree(6, null, null)
+h.make_tree(7, null, null)
+i.make_tree(3, g, h)
+
+j.make_tree(1, f, i)
 
 binary_tree = BinaryTree()
 
 print("Pre-order.....")
-binary_tree.display_preorder(e._root)
+binary_tree.display_preorder(j._root)
 
 print("\n\nIn-order.....")
-binary_tree.display_inorder(e._root)
+binary_tree.display_inorder(j._root)
 
 print("\n\nPost-order.....")
-binary_tree.display_postorder(e._root)
+binary_tree.display_postorder(j._root)
 
 print("\n\nLevel-order.....")
-binary_tree.display_levelorder(e._root)
+binary_tree.display_levelorder(j._root)
 
-print(f"\n\nNumber of Node is ==> {binary_tree.count_nodes(e._root)}")
-print(f"\n\nHeight of the tree is ==> {binary_tree.height(e._root)}")
+print(f"\n\nNumber of Node is ==> {binary_tree.count_nodes(j._root)}")
+print(f"\nHeight of the tree is ==> {binary_tree.height(j._root)}")
+
+print("\nBranch Sums.....")
+print(binary_tree.branchSums(j._root))
