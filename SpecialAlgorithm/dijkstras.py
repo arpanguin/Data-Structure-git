@@ -48,4 +48,4 @@ edges = [
          [],
          []]
 
-print(dijkstrasAlgorithm(1, edges))
+print(dijkstrasAlgorithm(0, edges))
