@@ -47,12 +47,12 @@ class LinkedList:
                 self.add_head(element)
             elif position == self._size + 1:
                 self.add_tail(element)
-            else :
+            else:
                 while i <= position - 2:
                     if i == position - 2:
-                         temp = p._next
-                         p._next = node
-                         node._next = temp
+                        temp = p._next
+                        p._next = node
+                        node._next = temp
                     i += 1
                     p = p._next
             self._size += 1
@@ -128,29 +128,80 @@ class LinkedList:
             linkedList = linkedList._next
         return linkedList
 
+    def findMid(self):
+        """Return the middle element of the linkedlist"""
+        head = self._head
+        fast = head
+        slow = head
+        moveBool = True
+        while fast._next != None:
+            fast = fast._next
+            if moveBool:
+                slow = slow._next
+            moveBool = not moveBool
+        return slow._element
+
+    def sumOfLinkedLists(self, list_l1, list_l2):
+        """Add two linked list and return a new list"""
+        linkedListOne = list_l1._head
+        linkedListTwo = list_l2._head
+
+        remaining_val = 0
+
+        while linkedListOne or linkedListTwo:
+            if linkedListOne and linkedListTwo:
+                addition = linkedListOne._element + linkedListTwo._element + remaining_val
+            elif linkedListOne:
+                addition = linkedListOne._element + remaining_val
+            else:
+                addition = linkedListTwo._element + remaining_val
+
+            remaining_val = int(str(addition)[0] if len(str(addition)) > 1 else 0)
+            addition = int(str(addition)[1] if len(str(addition)) > 1 else str(addition)[0])
+
+            self.add_tail(addition)
+            linkedListOne = linkedListOne._next if (linkedListOne and linkedListOne._next) else None
+            linkedListTwo = linkedListTwo._next if (linkedListTwo and linkedListTwo._next) else None
+        self.display()
+
+    def reverse(self, l1):
+        head = l1._head
+        if not head._next:
+            return head
+        p = head
+        q = None
+        while p:
+            temp = p._next
+            p._next = q
+            q = p
+            p = temp
+        return q
 
 node = LinkedList()
 
 print("Initial Linked List :")
 node.add_tail(1)
-node.add_tail(1)
+node.add_tail(2)
 node.add_tail(3)
 node.add_tail(4)
-node.add_tail(4)
-node.add_tail(4)
 node.add_tail(5)
-node.add_tail(6)
-node.add_tail(6)
+# node.add_tail(4)
+# node.add_tail(5)
+# node.add_tail(6)
+# node.add_tail(6)
 node.display()
-print(node)
-#
+node1 = LinkedList()
+node1.reverse(node)
+node1.display()
 # print("\n\nAfter adding 22 in the beginning :")
-# node.add_beginning(22)
+# node.add_head(22)
 # node.display()
 #
-# print(f"\n\n23 is at position : {node.search(23)}")
+# print(f"\n\nMiddle element is ==> {node.findMid()}")
 #
-# print("\n\nAfter adding 26 in specified position :")
+# print(f"\n23 is at position : {node.search(23)}")
+#
+# print("\nAfter adding 26 in specified position :")
 # node.add_position(26, 2)
 # node.display()
 #
@@ -165,3 +216,18 @@ print(node)
 # print("\n\nAfter deleting the 2nd node")
 # node.delete_position(1)
 # node.display()
+
+# node1 = LinkedList()
+# node2 = LinkedList()
+# node3 = LinkedList()
+#
+# node1.add_tail(2)
+# node1.add_tail(4)
+# node1.add_tail(7)
+# node1.add_tail(1)
+#
+# node2.add_tail(9)
+# node2.add_tail(4)
+# node2.add_tail(5)
+#
+# print(node3.sumOfLinkedLists(node1,node2))

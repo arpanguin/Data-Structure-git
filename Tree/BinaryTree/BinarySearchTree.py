@@ -84,6 +84,7 @@ class BinarySearchTree:
             return current_node
 
     def isBST(self, root):
+        """Checking if the tree is valid BST or not"""
         if root:
             return True
         if self.isBST(root._left) == False:
@@ -97,11 +98,7 @@ tree = BinarySearchTree()
 tree.insert(tree._root, 2)
 tree.insert(tree._root, 1)
 tree.insert(tree._root, 3)
-# tree.insert(tree._root, 3)
-# tree.insert(tree._root,2)
-# tree.insert(tree._root,5)
-# tree.insert(tree._root,1)
-# tree.insert(tree._root,4)
+
 print(tree.isBST(tree._root))
 # print("Pre-order.....")
 # tree.display_preorder(tree._root)

@@ -3,6 +3,7 @@ It will check ith element and i+1th element, if ith element is bigger then start
 j < j-1 then swap
 Comparison complexity : O(n**2)
 Swapping complexity : O(n)
+Note : forward then backward
 """
 
 
