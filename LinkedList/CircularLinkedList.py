@@ -41,14 +41,14 @@ class CircularLinkedList:
     def display(self):
         """Displaying a circular linked list"""
         p = self._head
-        i=1
-        if self._head is None:
+        if None is p:
             print("List is Empty")
         else:
-            while i <= self._size:
+            print(p._element, end="-->")
+            p = p.next
+            while p != self._head:
                 print(p._element, end="-->")
                 p = p._next
-                i += 1
 
 
 c_list = CircularLinkedList()
